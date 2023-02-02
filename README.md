@@ -1,11 +1,17 @@
-# B2bExamplePlugin
+# Example plugin for extending or overriding the B2Bsellers Suite Plugin - based on [Shopware 6 ](https://github.com/shopware/platform).
 
-## This is our example plugin for extending or overriding our B2Bsellers Suite.
-In this example we have overwritten a block from the account-index module
 
-## We will show more example functions here:
+
+## Current state - what can this plugin:
+* overwritten a block from the account-index module on the b2b-platform in the login area
+
+## Future - We will show more example functions here:
 * How you can provide a menu item via install
 * How you can create a new module with a table
+
+A full documentatione for the customize our plugin can be found [here](https://docs.b2b-sellers.com/)..
+
+[www.b2b-sellers.com](https://docs.b2b-sellers.com/) - About the B2Bsellers Suite 
 
 # B2Bsellers Suite
 The solution for unlimited B2B e-commerce with Shopware 6
