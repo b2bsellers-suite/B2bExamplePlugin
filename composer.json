@@ -1,0 +1,66 @@
+{
+  "name": "b2b/example-plugin",
+  "description": "B2b Example Plugin",
+  "version": "1.0.0",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "B2Bsellers GmbH",
+      "email": "info@b2b-sellers.com",
+      "homepage": "https://b2b-sellers.com",
+      "role": "Contributor"
+    }
+  ],
+  "require": {
+    "php": "^7.4||^8.0",
+    "shopware/core": "^6.4.0.0"
+  },
+  "require-dev": {
+    "k10r/codestyle": "^3.0",
+    "phpmd/phpmd": "^2.12",
+    "phpstan/phpstan": "^1.5",
+    "phpstan/phpstan-phpunit": "^1.1",
+    "phpunit/phpunit": "^9.5"
+  },
+  "extra": {
+    "shopware-plugin-class": "B2bExamplePlugin\\B2bExamplePlugin",
+    "copyright": "(c) B2Bsellers GmbH",
+    "label": {
+      "de-DE": "Change me",
+      "en-GB": "Change me"
+    },
+    "description": {
+      "de-DE": "Change me",
+      "en-GB": "Change me"
+    },
+    "manufacturerLink": {
+      "de-DE": "https//change.me",
+      "en-GB": "https//change.me"
+    },
+    "supportLink": {
+      "de-DE": "https//change.me/support",
+      "en-GB": "https//change.me/support"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "B2bExamplePlugin\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "B2bExamplePlugin\\Test\\": "tests/"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "scripts": {
+    "phpcs": "vendor/bin/php-cs-fixer fix",
+    "phpmd": "vendor/bin/phpmd src xml phpmd.xml",
+    "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon src"
+  }
+}
