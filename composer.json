@@ -1,7 +1,7 @@
 {
   "name": "b2b/example-plugin",
   "description": "B2b Example Plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "shopware-platform-plugin",
   "license": "MIT",
   "minimum-stability": "dev",
@@ -29,20 +29,20 @@
     "shopware-plugin-class": "B2bExamplePlugin\\B2bExamplePlugin",
     "copyright": "(c) B2Bsellers GmbH",
     "label": {
-      "de-DE": "Change me",
-      "en-GB": "Change me"
+      "de-DE": "B2b Example Plugin",
+      "en-GB": "B2b Example Plugin"
     },
     "description": {
-      "de-DE": "Change me",
-      "en-GB": "Change me"
+      "de-DE": "",
+      "en-GB": ""
     },
     "manufacturerLink": {
-      "de-DE": "https//change.me",
-      "en-GB": "https//change.me"
+      "de-DE": "https://www.b2b-sellers.com/",
+      "en-GB": "https://www.b2b-sellers.com/"
     },
     "supportLink": {
-      "de-DE": "https//change.me/support",
-      "en-GB": "https//change.me/support"
+      "de-DE": "https://www.b2b-sellers.com/",
+      "en-GB": "https://www.b2b-sellers.com/"
     }
   },
   "autoload": {

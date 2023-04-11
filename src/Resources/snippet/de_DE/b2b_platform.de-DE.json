@@ -1,0 +1,43 @@
+{
+  "b2bPlatform": {
+    "pageTitles": {
+      "exampleDevicesIndex": "Geräte",
+      "exampleDevicesCreate": "Gerät Hinzufügen"
+    },
+    "exampleDevices": {
+      "tableColumns": {
+        "name": "Name",
+        "description": "Beschreibung",
+        "employee": "Mitarbeiter",
+        "startAt": "Beginnt am",
+        "endAt": "Endet Am",
+        "serialNumber": "Seriennummer"
+      },
+      "actions": {
+        "create": "Erstelle Gerät"
+      },
+
+      "fields": {
+        "name": "Name",
+        "description": "Beschreibung",
+        "serialNumber": "Seriennummer",
+        "startAt": "Startet am",
+        "endAt": "Endet am"
+      },
+
+      "modal": {
+        "promptTitle": "Gerät Löschen",
+        "promptQuestion": "Möchten sie wirklich dieses Gerät löschen?"
+      },
+
+      "messages": {
+        "deleteSuccess": "Löschen Erfolgreich",
+        "deleteFailed": "Löschen Fehlgeschlagen",
+        "updateSuccess": "Erfolgreich Bearbeitet",
+        "updateFailed": "Bearbeiten Fehlgeschlagen",
+        "createSuccess": "Erfolgreich Erstellt",
+        "createFailed": "Erstellen Fehlgeschlagen"
+      }
+    }
+  }
+}

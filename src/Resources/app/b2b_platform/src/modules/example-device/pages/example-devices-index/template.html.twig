@@ -1,0 +1,75 @@
+{% block example_devices_index %}
+    <div class="platform-page container platform-page--example_devices-index">
+
+        {% block example_devices_index_title %}
+            <h1 class="platform-title">{{ $trans('b2bPlatform.pageTitles.exampleDevicesIndex') }}</h1>
+        {% endblock %}
+
+        {% block example_devices_index_table %}
+            <data-table :columns="columns"
+                        :data="data"
+                        :options="options"
+                        @change-query="onQueryChange"
+                        :is-loading="isLoading"
+                        ref="dataTable"
+                        :total-rows="totalRows">
+
+                {% block example_devices_index_table_glob_actions %}
+                    <template slot="global-actions">
+                        <div class="btn-group">
+                            <router-link to="/example-devices/create" class="btn btn-secondary">
+                                <sw-icon name="default-basic-plus-circle" size="16"></sw-icon>
+                                {{ $trans('b2bPlatform.exampleDevices.actions.create') }}
+                            </router-link>
+                        </div>
+                    </template>
+                {% endblock %}
+
+                {% block example_devices_index_table_row_name %}
+                    <template slot="col-row-count" slot-scope="{ row }">
+                        {{ row.name }}
+                    </template>
+                {% endblock %}
+
+                {% block example_devices_index_table_row_description %}
+                    <template slot="col-row-count" slot-scope="{ row }">
+                        {{ row.description }}
+                    </template>
+                {% endblock %}
+
+                {% block example_devices_index_table_row_actions %}
+                    <template slot="col-row-actions" slot-scope="{  row, rowIndex  }">
+                        <div class="btn-group btn-group-sm">
+                            {% block example_devices_index_table_row_actions_detail %}
+                                <router-link class="btn btn-primary" :to="`/example-devices/detail/${row._uniqueIdentifier}`">
+                                    <sw-icon name="default-action-search" size="16"></sw-icon>
+                                </router-link>
+                            {% endblock %}
+                            {% block example_devices_index_table_row_actions_remove %}
+                                <button class="btn btn-danger" @click="openRemovePrompt(row)">
+                                    <sw-icon name="default-basic-x-line" size="16"></sw-icon>
+                                </button>
+                            {% endblock %}
+                        </div>
+                    </template>
+                {% endblock %}
+
+            </data-table>
+        {% endblock %}
+
+        {% block cost_center_index_unlink_prompt %}
+            <prompt :active.sync="removePromptOpen"
+                    :loading="promptIsLoading"
+                    :title="$trans('b2bPlatform.exampleDevices.modal.promptTitle')"
+                    @close="onCloseDeletePrompt"
+                    @accept="onAcceptDeletePrompt">
+                <template slot="modal-body">
+                    <span v-if="exampleDevicesToRemove">
+                        {{ $trans('b2bPlatform.exampleDevices.modal.promptQuestion', {'name': exampleDevicesToRemove.name}) }}
+                    </span>
+                </template>
+            </prompt>
+        {% endblock %}
+
+    </div>
+{% endblock %}
