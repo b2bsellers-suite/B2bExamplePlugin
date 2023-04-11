@@ -4,10 +4,9 @@
 
 ## Current state - what can this plugin:
 * overwritten a block from the account-index module on the b2b-platform in the login area
+* provide a menu item via install
+* Insert, edit, and delete data in a table
 
-## Future - We will show more example functions here:
-* How you can provide a menu item via install
-* How you can create a new module with a table
 
 A full documentatione for the customize our plugin can be found [here](https://docs.b2b-sellers.com/)..
 
