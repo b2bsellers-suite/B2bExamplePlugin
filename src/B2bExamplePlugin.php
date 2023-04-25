@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace B2bExamplePlugin;
 
+use B2bExamplePlugin\Setup\CustomFieldSetup;
 use B2bExamplePlugin\Setup\PlatformMenuInstaller;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
@@ -25,6 +26,8 @@ class B2bExamplePlugin extends Plugin
         $connection = $this->container->get(Connection::class);
 
         (new PlatformMenuInstaller())->install($connection);
+        (new CustomFieldSetup($this->container, $installContext->getContext()))->install();
+
     }
 
     /**
@@ -77,5 +80,7 @@ class B2bExamplePlugin extends Plugin
         $connection->executeStatement('SET FOREIGN_KEY_CHECKS = 1');
 
         (new PlatformMenuInstaller())->uninstall($connection);
+        (new CustomFieldSetup($this->container, $uninstallContext->getContext()))->uninstall();
+
     }
 }

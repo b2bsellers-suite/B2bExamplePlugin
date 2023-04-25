@@ -67,8 +67,15 @@ Component.register('example-devices-index', {
                 key: 'employee',
                 field: 'employee',
                 fieldRenderer: (column, row) => {
-                return this.formatName(row.employee.firstName, row.employee.lastName)
-            }
+                    if (!row) {
+                        return "";
+                    }
+                    return (row.employee.title || "")
+                    + ' '
+                    + row.employee.firstName
+                    + ' '
+                    + row.employee.lastName
+                },
             },{
                 title: this.$trans('b2bPlatform.exampleDevices.tableColumns.serialNumber'),
                 key: 'serialNumber',

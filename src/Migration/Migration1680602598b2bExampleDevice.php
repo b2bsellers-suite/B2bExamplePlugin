@@ -18,8 +18,6 @@ class Migration1680602598b2bExampleDevice extends MigrationStep
      */
     public function update(Connection $connection): void
     {
-        # CONSTRAINT `json.b2b_example_devices.translated` CHECK (JSON_VALID(`translated`)),
-
         $connection->executeStatement('
             CREATE TABLE IF NOT EXISTS `b2b_example_devices` (
                 `id` BINARY(16) NOT NULL,

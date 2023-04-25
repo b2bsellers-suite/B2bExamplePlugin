@@ -1,0 +1,14 @@
+{
+  "sw-settings-custom-field": {
+    "customField": {
+      "entity": {
+        "b2b_example_devices": "Beispiel Geräte"
+      }
+    }
+  },
+  "global": {
+    "entities": {
+      "b2b_example_devices": "Beispiel Geräte"
+    }
+  }
+}
