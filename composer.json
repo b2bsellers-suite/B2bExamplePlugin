@@ -1,6 +1,6 @@
 {
   "name": "b2b-sellers/example-plugin",
-  "description": "B2b Example Plugin",
+  "description": "The example plugin shows how easy you can extend the B2Bsellers Suite (based on Shopware 6).",
   "version": "1.0.1",
   "type": "shopware-platform-plugin",
   "license": "MIT",
