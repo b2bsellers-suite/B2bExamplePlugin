@@ -1,5 +1,5 @@
 {
-  "name": "b2b/example-plugin",
+  "name": "b2b-sellers/example-plugin",
   "description": "B2b Example Plugin",
   "version": "1.0.1",
   "type": "shopware-platform-plugin",
