@@ -18,7 +18,7 @@
                     <template slot="global-actions">
                         <div class="btn-group">
                             <router-link to="/example-devices/create" class="btn btn-secondary">
-                                <sw-icon name="default-basic-plus-circle" size="16"></sw-icon>
+                                <sw-icon name="regular-plus-circle" size="16"></sw-icon>
                                 {{ $trans('b2bPlatform.exampleDevices.actions.create') }}
                             </router-link>
                         </div>
@@ -41,13 +41,13 @@
                     <template slot="col-row-actions" slot-scope="{  row, rowIndex  }">
                         <div class="btn-group btn-group-sm">
                             {% block example_devices_index_table_row_actions_detail %}
-                                <router-link class="btn btn-primary" :to="`/example-devices/detail/${row._uniqueIdentifier}`">
-                                    <sw-icon name="default-action-search" size="16"></sw-icon>
+                                <router-link class="btn btn-primary" :to="`/example-devices/detail/${row.id}`">
+                                    <sw-icon name="regular-search" size="16"></sw-icon>
                                 </router-link>
                             {% endblock %}
                             {% block example_devices_index_table_row_actions_remove %}
                                 <button class="btn btn-danger" @click="openRemovePrompt(row)">
-                                    <sw-icon name="default-basic-x-line" size="16"></sw-icon>
+                                    <sw-icon name="regular-times" size="16"></sw-icon>
                                 </button>
                             {% endblock %}
                         </div>

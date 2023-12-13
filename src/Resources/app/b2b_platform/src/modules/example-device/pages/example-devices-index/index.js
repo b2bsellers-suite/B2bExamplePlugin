@@ -44,7 +44,6 @@ Component.register('example-devices-index', {
             this.isLoading = true;
 
             Promise.all([this.onQueryChange()]).then((response) => {
-                console.log(response)
                 response[0].data.elements.forEach(exampleDevices => {
                     this.data.push(exampleDevices)
                 })
@@ -125,7 +124,7 @@ Component.register('example-devices-index', {
         onAcceptDeletePrompt() {
             this.promptIsLoading = true;
 
-            this.apiService.delete('example-devices/' + this.exampleDevicesToRemove._uniqueIdentifier)
+            this.apiService.delete('example-devices/' + this.exampleDevicesToRemove.id)
                 .then(() => {
                     this.onCloseDeletePrompt();
                     this.promptIsLoading = false;

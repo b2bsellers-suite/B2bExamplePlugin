@@ -82,7 +82,7 @@ class PlatformMenuInstaller
      */
     public function uninstall(Connection $connection): void
     {
-        $connection->delete('b2b_platform_menu_item', ['module_name' => 'example_devices']);
+        $connection->delete('b2bsellers_platform_menu_item', ['module_name' => 'example_devices']);
     }
 
 
@@ -91,11 +91,11 @@ class PlatformMenuInstaller
      */
     private function platformMenuItemAlreadyExists(Connection $connection): bool
     {
-        $platformMenu = $connection->fetchOne('SELECT id FROM `b2b_platform_menu_item` WHERE `module_name` = :module_name', ['module_name' => 'example_devices']);
+        $platformMenu = $connection->fetchOne('SELECT id FROM `b2bsellers_platform_menu_item` WHERE `module_name` = :module_name', ['module_name' => 'example_devices']);
 
         if ($platformMenu) {
             $connection->update(
-                'b2b_platform_menu_item',
+                'b2bsellers_platform_menu_item',
                 ['technical_name' => 'example_devices'],
                 ['module_name' => 'example_devices', 'deletable' => 0]
             );
@@ -126,17 +126,17 @@ class PlatformMenuInstaller
         $translations = $data['translations'];
         unset($data['translations']);
 
-        $this->connection->insert('b2b_platform_menu_item', $data);
+        $this->connection->insert('b2bsellers_platform_menu_item', $data);
 
         foreach ($translations as &$translation) {
             if ($translation['language_id'] === null) {
                 continue;
             }
 
-            $translation['b2b_platform_menu_item_id'] = $data['id'];
+            $translation['b2bsellers_platform_menu_item_id'] = $data['id'];
             $translation['created_at'] = (new \DateTime())->format(Defaults::STORAGE_DATE_TIME_FORMAT);
 
-            $this->connection->insert('b2b_platform_menu_item_translation', $translation);
+            $this->connection->insert('b2bsellers_platform_menu_item_translation', $translation);
         }
     }
 }

@@ -6,7 +6,7 @@ use B2bExamplePlugin\Components\ExampleDevice\ExampleDeviceDefinition;
 use B2bSellersCore\Components\B2bPlatform\Traits\B2bContextTrait;
 use B2bSellersCore\Components\Framework\Routing\Annotation\B2bPlatformContextRequired;
 use Shopware\Core\Framework\Api\Exception\ResourceNotFoundException;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\Plugin\Exception\DecorationPatternException;
 use Shopware\Core\Framework\Routing\Annotation\Entity;
@@ -18,22 +18,20 @@ use Shopware\Core\System\SalesChannel\SuccessResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @RouteScope(scopes={"store-api"})
- */
+#[Route(defaults: ['_routeScope' => ['store-api']])]
 class ExampleDeviceRoute extends AbstractExampleDeviceRoute
 {
     use B2bContextTrait;
     private ExampleDeviceDefinition $deviceDefinition;
-    private EntityRepositoryInterface $devicesRepository;
+    private EntityRepository $devicesRepository;
 
     public function __construct(
-        EntityRepositoryInterface $costCenterRepository,
-        ExampleDeviceDefinition $costCenterDefinition
+        EntityRepository $devicesRepository,
+        ExampleDeviceDefinition $deviceDefinition
     )
     {
-        $this->devicesRepository = $costCenterRepository;
-        $this->deviceDefinition = $costCenterDefinition;
+        $this->devicesRepository = $devicesRepository;
+        $this->deviceDefinition = $deviceDefinition;
     }
 
     /**
@@ -44,11 +42,15 @@ class ExampleDeviceRoute extends AbstractExampleDeviceRoute
         throw new DecorationPatternException(self::class);
     }
 
-    /**
-     * @LoginRequired()
-     * @Entity("b2b_example_devices")
-     * @Route("/store-api/example-devices/get/{id}", name="store-api.example-device.get", methods={"GET"})
-     */
+	#[Route(
+		path: '/store-api/example-devices/get/{id}',
+		name: 'store-api.example-device.get',
+		methods: ['GET'],
+		defaults: [
+			'_loginRequired' => true,
+			'_entity' => 'b2bsellers_example_devices'
+		]
+	)]
     public function load($id, SalesChannelContext $context): ExampleDeviceRouteResponse
     {
         $criteria = new Criteria([$id]);
@@ -63,22 +65,29 @@ class ExampleDeviceRoute extends AbstractExampleDeviceRoute
         return new ExampleDeviceRouteResponse($device);
     }
 
-    /**
-     * @LoginRequired()
-     * @Entity("b2b_example_devices")
-     * @Route("/store-api/example-devices/{id}", name="store-api.example-device.delete", methods={"DELETE"})
-     */
+	#[Route(
+		path: '/store-api/example-devices/{id}',
+		name: 'store-api.example-device.delete',
+		methods: ['DELETE'],
+		defaults: [
+			'_loginRequired' => true,
+			'_entity' => 'b2bsellers_example_devices'
+		]
+	)]
     public function delete($id, SalesChannelContext $context): SuccessResponse
     {
         $this->devicesRepository->delete([['id' => $id]], $context->getContext());
         return new SuccessResponse();
     }
-
-    /**
-     * @LoginRequired()
-     * @Entity("b2b_example_devices")
-     * @Route("/store-api/example-devices/list", name="store-api.example-device.list", methods={"GET"})
-     */
+	#[Route(
+		path: '/store-api/example-devices/list',
+		name: 'store-api.example-device.list',
+		methods: ['GET'],
+		defaults: [
+			'_loginRequired' => true,
+			'_entity' => 'b2bsellers_example_devices'
+		]
+	)]
     public function list(Request $request, SalesChannelContext $context, Criteria $criteria): ExampleDeviceRouteResponse
     {
         $criteria = new Criteria();
@@ -88,24 +97,30 @@ class ExampleDeviceRoute extends AbstractExampleDeviceRoute
 
         return new ExampleDeviceRouteResponse($devices);
     }
-
-    /**
-     * @LoginRequired()
-     * @Entity("b2b_example_devices")
-     * @Route("/store-api/example-devices", name="store-api.example-device.create", methods={"POST"})
-     */
+	#[Route(
+		path: '/store-api/example-devices',
+		name: 'store-api.example-device.create',
+		methods: ['POST'],
+		defaults: [
+			'_loginRequired' => true,
+			'_entity' => 'b2bsellers_example_devices'
+		]
+	)]
     public function create(RequestDataBag $requestDataBag, SalesChannelContext $context): SuccessResponse
     {
         $data = $requestDataBag->all();
         $this->devicesRepository->create([$data], $context->getContext());
         return new SuccessResponse();
     }
-
-    /**
-     * @LoginRequired()
-     * @Entity("b2b_example_devices")
-     * @Route("/store-api/example-devices/{id}", name="store-api.example-device.update", methods={"PATCH"})
-     */
+	#[Route(
+		path: '/store-api/example-devices/{id}',
+		name: 'store-api.example-device.update',
+		methods: ['PATCH'],
+		defaults: [
+			'_loginRequired' => true,
+			'_entity' => 'b2bsellers_example_devices'
+		]
+	)]
     public function update($id, RequestDataBag $requestDataBag, SalesChannelContext $context): SuccessResponse
     {
         $requestDataBag->set('id', $id);

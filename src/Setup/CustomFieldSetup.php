@@ -47,7 +47,7 @@ class CustomFieldSetup
 
         $exampleDevicesSetId = $this->getCustomFieldSetId('b2b_example_devices_set');
 
-        $this->customFieldSetRepository->create([
+        $this->customFieldSetRepository->upsert([
             [
                 'id' => $exampleDevicesSetId,
                 'name' => 'b2b_example_devices_set',
@@ -58,8 +58,8 @@ class CustomFieldSetup
                     ]
                 ],
                 'relations' => [[
-                    'id' => $this->getCustomFieldSetRelationId($exampleDevicesSetId, 'b2b_example_devices'),
-                    'entityName' => 'b2b_example_devices'
+                    'id' => $this->getCustomFieldSetRelationId($exampleDevicesSetId, 'b2bsellers_example_devices'),
+                    'entityName' => 'b2bsellers_example_devices'
                 ]],
 
                 'customFields' => [[
@@ -69,7 +69,7 @@ class CustomFieldSetup
                     'config' => [
                         'componentName' => 'sw-entity-single-select',
                         'customFieldType' => CustomFieldTypes::TEXT,
-                        'entity' => 'b2b_example_devices',
+                        'entity' => 'b2bsellers_example_devices',
                         'labelProperty' => 'name',
                         'label' => [
                             'de-DE' => 'MAC - Addresse',

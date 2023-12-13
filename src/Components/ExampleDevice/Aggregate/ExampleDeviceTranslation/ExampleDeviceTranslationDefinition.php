@@ -10,7 +10,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
 
 class ExampleDeviceTranslationDefinition extends EntityTranslationDefinition
 {
-    public const ENTITY_NAME = 'b2b_example_devices_translation';
+    public const ENTITY_NAME = 'b2bsellers_example_devices_translation';
 
     public function getEntityName(): string
     {

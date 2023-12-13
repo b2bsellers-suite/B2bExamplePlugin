@@ -23,7 +23,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
 class ExampleDeviceDefinition extends EntityDefinition
 {
 
-    public const ENTITY_NAME = 'b2b_example_devices';
+    public const ENTITY_NAME = 'b2bsellers_example_devices';
 
 
     public function getEntityName(): string
@@ -34,13 +34,13 @@ class ExampleDeviceDefinition extends EntityDefinition
     protected function defineFields(): FieldCollection
     {
         return new FieldCollection([
-            (new IdField('id', 'id'))->addFlags(new PrimaryKey(), new Required()),
+            (new IdField('id', 'id'))->addFlags(new PrimaryKey(), new Required(), new ApiAware()),
             (new TranslatedField('name'))->addFlags(new ApiAware()),
             (new TranslationsAssociationField(ExampleDeviceTranslationDefinition::class,
-                'b2b_example_devices_id'))->addFlags(new Required(), new ApiAware()),
+                'b2bsellers_example_devices_id'))->addFlags(new Required(), new ApiAware()),
             (new TranslatedField('description'))->addFlags(new ApiAware()),
             (new TranslationsAssociationField(ExampleDeviceTranslationDefinition::class,
-                'b2b_example_devices_id'))->addFlags(new Required(), new ApiAware()),
+                'b2bsellers_example_devices_id'))->addFlags(new Required(), new ApiAware()),
             (new StringField('serial_number', 'serial_number'))->addFlags(new ApiAware()),
             (new CustomFields('custom_fields', 'customFields'))->addFlags(new ApiAware()),
             (new DateField('start_at', 'start_at'))->addFlags(new ApiAware()),

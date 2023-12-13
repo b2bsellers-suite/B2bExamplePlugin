@@ -9,7 +9,7 @@
         </service>
 
         <service id="B2bExamplePlugin\Components\ExampleDevice\SalesChannel\ExampleDeviceRoute" public="true">
-            <argument type="service" id="b2b_example_devices.repository"/>
+            <argument type="service" id="b2bsellers_example_devices.repository"/>
             <argument type="service" id="B2bExamplePlugin\Components\ExampleDevice\ExampleDeviceDefinition"/>
         </service>
 

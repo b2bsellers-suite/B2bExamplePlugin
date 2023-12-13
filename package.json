@@ -1,9 +1,9 @@
 {
   "name": "b2b/example-plugin",
   "private": true,
-  "version": "1.0.0",
-  "description": "Change me",
-  "author": "Kellerkinder GmbH",
+  "version": "2.0.0",
+  "description": "The example plugin shows how easy you can extend the B2Bsellers Suite (based on Shopware 6)",
+  "author": "B2Bsellers GmbH",
   "devDependencies": {
       "@kellerkinder/eslint-config": "^2.0.0",
       "@kellerkinder/stylelint-config": "^1.0.0",
