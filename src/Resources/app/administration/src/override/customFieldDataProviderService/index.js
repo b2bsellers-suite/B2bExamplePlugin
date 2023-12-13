@@ -1,7 +1,7 @@
 const { Application, State } = Shopware;
 
 const entities = [
-    'b2b_example_devices',
+    'b2bsellers_example_devices',
 ]
 
 Application.addServiceProviderMiddleware('customFieldDataProviderService', (customFieldService, next) => {

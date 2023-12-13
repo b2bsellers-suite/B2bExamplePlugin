@@ -73,9 +73,9 @@ class B2bExamplePlugin extends Plugin
 
         $connection->executeStatement('SET FOREIGN_KEY_CHECKS = 0');
 
-        $connection->executeStatement('DROP TABLE IF EXISTS `b2b_example_devices`');
+        $connection->executeStatement('DROP TABLE IF EXISTS `b2bsellers_example_devices`');
 
-        $connection->executeStatement('DROP TABLE IF EXISTS `b2b_example_devices_translation`');
+        $connection->executeStatement('DROP TABLE IF EXISTS `b2bsellers_example_devices_translation`');
 
         $connection->executeStatement('SET FOREIGN_KEY_CHECKS = 1');
 

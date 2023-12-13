@@ -7,8 +7,8 @@ Component.override('sw-custom-field-type-entity', {
             const parent = this.$super('entityTypes');
 
             return parent.concat([{
-                label: this.$tc('sw-settings-custom-field.customField.entity.b2b_example_devices'),
-                value: 'b2b_example_devices',
+                label: this.$tc('sw-settings-custom-field.customField.entity.b2bsellers_example_devices'),
+                value: 'b2bsellers_example_devices',
                 config: {
                     labelProperty: 'name',
                 },
